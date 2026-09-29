@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GreenLeaf — магазин комнатных растений">
+    <title>GreenLeaf — магазин растений</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===================== ШАПКА ===================== -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Green<span>Leaf</span></a>
+
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#catalog" class="nav__link">Каталог</a></li>
+                <li class="nav__item"><a href="#about" class="nav__link">О нас</a></li>
+                <li class="nav__item"><a href="#form" class="nav__link">Контакты</a></li>
+            </ul>
+
+            <div class="nav__actions">
+                <button class="cart" id="cartBtn" type="button" aria-label="Корзина">
+                    <span class="cart__icon">🛒</span>
+                    <span class="cart__count" id="cartCount">0</span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Сменить тему">
+                    <span class="theme-toggle__icon" id="themeIcon">🌙</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===================== ОБЛОЖКА ===================== -->
+    <section class="hero">
+        <div class="hero__content container">
+            <p class="hero__tag">Живые растения с доставкой</p>
+            <h1 class="hero__title">Озелените<br>свой дом</h1>
+            <p class="hero__text">
+                Более 200 видов комнатных растений. Привезём в течение 24 часов,
+                поможем с выбором и уходом.
+            </p>
+            <a href="#catalog" class="btn btn--primary hero__btn">Подробнее</a>
+        </div>
+    </section>
+
+    <!-- ===================== КАТАЛОГ ===================== -->
+    <section class="catalog container" id="catalog">
+        <h2 class="section-title">Популярные растения</h2>
+
+        <div class="cards">
+
+            <article class="card" data-price="1290">
+                <div class="card__img">
+                    <img src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=600&q=80" alt="Монстера">
+                </div>
+                <div class="card__body">
+                    <h3 class="card__title">Монстера Деликатесная</h3>
+                    <p class="card__desc">Крупные резные листья. Высота 60–80 см, в горшке 15 см.</p>
+                    <span class="card__price">1 290 ₽</span>
+                    <button class="btn btn--buy" data-action="add">В корзину</button>
+                </div>
+            </article>
+
+            <article class="card" data-price="890">
+                <div class="card__img">
+                    <img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=600&q=80" alt="Фикус">
+                </div>
+                <div class="card__body">
+                    <h3 class="card__title">Фикус Лирата</h3>
+                    <p class="card__desc">Стройный ствол, крупные листья. Отлично смотрится в интерьере.</p>
+                    <span class="card__price">890 ₽</span>
+                    <button class="btn btn--buy" data-action="add">В корзину</button>
+                </div>
+            </article>
+
+            <article class="card" data-price="1490">
+                <div class="card__img">
+                    <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&q=80" alt="Сансевиерия">
+                </div>
+                <div class="card__body">
+                    <h3 class="card__title">Сансевиерия</h3>
+                    <p class="card__desc">Неприхотливое растение. Идеально для новичков и офиса.</p>
+                    <span class="card__price">1 490 ₽</span>
+                    <button class="btn btn--buy" data-action="add">В корзину</button>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ===================== ИНТЕРАКТИВНЫЙ БЛОК (СЛАЙДЕР) ===================== -->
+    <section class="promo container" id="about">
+        <div class="slider" id="slider">
+            <div class="slider__track" id="sliderTrack">
+                <div class="slider__slide">
+                    <h3>Бесплатная доставка</h3>
+                    <p>При заказе от 2 000 ₽ по Москве</p>
+                </div>
+                <div class="slider__slide">
+                    <h3>Гарантия приживаемости</h3>
+                    <p>30 дней — заменим бесплатно, если что-то не прижилось</p>
+                </div>
+                <div class="slider__slide">
+                    <h3>Подбор с флористом</h3>
+                    <p>Поможем выбрать растение под ваш интерьер и свет</p>
+                </div>
+            </div>
+            <button class="slider__btn slider__btn--prev" id="sliderPrev" aria-label="Назад">‹</button>
+            <button class="slider__btn slider__btn--next" id="sliderNext" aria-label="Вперёд">›</button>
+            <div class="slider__dots" id="sliderDots"></div>
+        </div>
+    </section>
+
+    <!-- ===================== ФОРМА (5 ВОПРОСОВ) ===================== -->
+    <section class="form-section" id="form">
+        <div class="container form-section__inner">
+            <h2 class="section-title">Подберём растение вместе</h2>
+            <p class="form-section__lead">Ответьте на 5 вопросов — пришлём персональную подборку</p>
+
+            <form class="form" id="quizForm" novalidate>
+
+                <!-- 1 -->
+                <div class="form__group">
+                    <label class="form__label" for="q1">1. Как вас зовут?</label>
+                    <input class="form__input" type="text" id="q1" name="name" placeholder="Ваше имя" required>
+                </div>
+
+                <!-- 2 -->
+                <div class="form__group">
+                    <label class="form__label" for="q2">2. Ваш email для ответа</label>
+                    <input class="form__input" type="email" id="q2" name="email" placeholder="you@mail.ru" required>
+                </div>
+
+                <!-- 3 -->
+                <div class="form__group">
+                    <label class="form__label" for="q3">3. Сколько света в комнате?</label>
+                    <select class="form__input" id="q3" name="light" required>
+                        <option value="">— выберите —</option>
+                        <option value="bright">Много света</option>
+                        <option value="medium">Средне</option>
+                        <option value="low">Мало, тень</option>
+                    </select>
+                </div>
+
+                <!-- 4 -->
+                <div class="form__group">
+                    <label class="form__label">4. Опыт с растениями</label>
+                    <div class="form__options">
+                        <label class="form__radio">
+                            <input type="radio" name="experience" value="none" required>
+                            <span>Первый раз</span>
+                        </label>
+                        <label class="form__radio">
+                            <input type="radio" name="experience" value="some">
+                            <span>Есть небольшой</span>
+                        </label>
+                        <label class="form__radio">
+                            <input type="radio" name="experience" value="pro">
+                            <span>Опытный</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="form__group">
+                    <label class="form__label" for="q5">5. Комментарий (по желанию)</label>
+                    <textarea class="form__input form__input--area" id="q5" name="comment" rows="4" placeholder="Расскажите о задаче"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn--primary form__submit">Отправить заявку</button>
+                <p class="form__message" id="formMessage"></p>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- ===================== ПОДВАЛ ===================== -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__col">
+                <p class="footer__logo">Green<span>Leaf</span></p>
+                <p class="footer__note">Магазин комнатных растений с 2018 года</p>
+            </div>
+            <div class="footer__col">
+                <p class="footer__title">Контакты</p>
+                <p>+7 (999) 123-45-67</p>
+                <p>hello@greenleaf.ru</p>
+                <p>Москва, ул. Садовая, 15</p>
+            </div>
+            <div class="footer__col">
+                <p class="footer__title">Разделы</p>
+                <p><a href="#catalog" class="footer__link">Каталог</a></p>
+                <p><a href="#about" class="footer__link">О нас</a></p>
+                <p><a href="#form" class="footer__link">Контакты</a></p>
+            </div>
+        </div>
+        <p class="copyright">© 2026 GreenLeaf. Все права защищены.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
